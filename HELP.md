@@ -17,3 +17,5 @@ The following guides illustrate how to use some features concretely:
 
 ### To Install/ Run
 mvn clean install
+
+mvn spring-boot:run
