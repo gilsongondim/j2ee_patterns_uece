@@ -19,3 +19,9 @@ The following guides illustrate how to use some features concretely:
 mvn clean install
 
 mvn spring-boot:run
+
+
+### To login
+UserName: user
+
+Password: secret123

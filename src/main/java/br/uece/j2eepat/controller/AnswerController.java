@@ -31,7 +31,7 @@ public class AnswerController {
                 .map(question -> {
                     answer.setQuestion(question);
                     return answerRepository.save(answer);
-                }).orElseThrow(() -> new ResourceNotFoundException("Question not found with id " + questionId));
+                }).orElseThrow(() -> new ResourceNotFoundException("Pergunta nao encontrada com Id " + questionId));
     }
 
     @PutMapping("/questions/{questionId}/answers/{answerId}")
@@ -39,28 +39,28 @@ public class AnswerController {
                                @PathVariable Long answerId,
                                @Valid @RequestBody Answer answerRequest) {
         if(!questionRepository.existsById(questionId)) {
-            throw new ResourceNotFoundException("Question not found with id " + questionId);
+            throw new ResourceNotFoundException("Pergunta nao encontrada com Id " + questionId);
         }
 
         return answerRepository.findById(answerId)
                 .map(answer -> {
                     answer.setText(answerRequest.getText());
                     return answerRepository.save(answer);
-                }).orElseThrow(() -> new ResourceNotFoundException("Answer not found with id " + answerId));
+                }).orElseThrow(() -> new ResourceNotFoundException("Resposta nao encontrada com Id " + answerId));
     }
 
     @DeleteMapping("/questions/{questionId}/answers/{answerId}")
     public ResponseEntity<?> deleteAnswer(@PathVariable Long questionId,
                                           @PathVariable Long answerId) {
         if(!questionRepository.existsById(questionId)) {
-            throw new ResourceNotFoundException("Question not found with id " + questionId);
+            throw new ResourceNotFoundException("Pergunta nao encontrada com Id " + questionId);
         }
 
         return answerRepository.findById(answerId)
                 .map(answer -> {
                     answerRepository.delete(answer);
                     return ResponseEntity.ok().build();
-                }).orElseThrow(() -> new ResourceNotFoundException("Answer not found with id " + answerId));
+                }).orElseThrow(() -> new ResourceNotFoundException("Resposta nao encontrada com Id " + answerId));
 
     }
 
