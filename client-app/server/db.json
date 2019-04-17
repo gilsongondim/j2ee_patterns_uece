@@ -1,0 +1,17 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "title": "pergunta",
+      "description": "texto da pergunta"
+    }
+  ],
+  "answers": [
+    {
+      "id": 1,
+      "text": "resposta da pergunta",
+      "question_id": 1
+    }
+  ]
+
+}

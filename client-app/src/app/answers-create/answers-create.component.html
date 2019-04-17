@@ -1,0 +1,18 @@
+<div class="container custom-container">
+  <div class="col-md-12">
+    <h3 class="mb-3 text-center">Cadastrar Resposta</h3>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="answerDetails.question_id" class="form-control" placeholder="Question">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="answerDetails.text" class="form-control" placeholder="Texto">
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" (click)="addAnswer()">Criar Resposta</button>
+    </div>
+
+  </div>
+</div>
