@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="layout">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Perguntas and Respostas</title>
+    <link
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            rel="stylesheet"></link>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div th:fragment="menu">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">UECE - Trabalhando com padr&otilde;es</a>
+            </div>
+        </div>
+
+        <ul class="nav navbar-nav">
+            <li><a class="brand" href="/perguntas">Perguntas</a></li>
+            <li><a class="brand" href="/respostas">Respostas</a></li>
+        </ul>
+    </nav>
+
+</div>
+
+
+<div class="page-content">
+
+    <h1 layout:fragment="header">FakeStackOverflow
+        <small>Painel de Controle</small></h1>
+
+    <div layout:fragment="content" class="container">
+        <div class="jumbotron">
+            <a th:href="@{/perguntas}" class="btn btn-lg btn-info">Perguntas</a>
+            <a th:href="@{/respostas}" class="btn btn-lg btn-info">Respostas</a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

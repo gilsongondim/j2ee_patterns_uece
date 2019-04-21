@@ -5,13 +5,13 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "questions")
-public class Question extends AuditModel{
+@Table(name = "perguntas")
+public class Pergunta extends AuditModel{
     @Id
-    @GeneratedValue(generator = "question_generator")
+    @GeneratedValue(generator = "pergunta_generator")
     @SequenceGenerator(
-            name = "question_generator",
-            sequenceName = "question_sequence",
+            name = "pergunta_generator",
+            sequenceName = "pergunta_sequence",
             initialValue = 1000
     )
     private Long id;

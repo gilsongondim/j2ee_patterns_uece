@@ -7,13 +7,13 @@ import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "answers")
-public class Answer extends AuditModel{
+@Table(name = "respostas")
+public class Resposta extends AuditModel{
     @Id
-    @GeneratedValue(generator = "answer_generator")
+    @GeneratedValue(generator = "resposta_generator")
     @SequenceGenerator(
-            name = "answer_generator",
-            sequenceName = "answer_sequence",
+            name = "resposta_generator",
+            sequenceName = "resposta_sequence",
             initialValue = 1000
     )
     private Long id;
@@ -22,10 +22,10 @@ public class Answer extends AuditModel{
     private String text;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "question_id", nullable = false)
+    @JoinColumn(name = "pergunta_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private Question question;
+    private Pergunta pergunta;
 
     public Long getId() {
         return id;
@@ -43,11 +43,11 @@ public class Answer extends AuditModel{
         this.text = text;
     }
 
-    public Question getQuestion() {
-        return question;
+    public Pergunta getPergunta() {
+        return pergunta;
     }
 
-    public void setQuestion(Question question) {
-        this.question = question;
+    public void setPergunta(Pergunta pergunta) {
+        this.pergunta = pergunta;
     }
 }

@@ -3,6 +3,8 @@ package br.uece.j2eepat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
@@ -17,13 +19,18 @@ import javax.sql.DataSource;
 @SpringBootApplication
 @EnableJpaAuditing
 @EnableJpaRepositories("br.uece.j2eepat.repository")
-public class J2eepatApplication {
+public class J2eepatApplication extends SpringBootServletInitializer {
 
 	@Autowired
 	private Environment env;
 
 	public static void main(String[] args) {
 		SpringApplication.run(J2eepatApplication.class, args);
+	}
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources( J2eepatApplication.class );
 	}
 
 	public DataSource dataSource() {
