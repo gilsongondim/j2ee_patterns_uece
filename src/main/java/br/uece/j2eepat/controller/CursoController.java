@@ -23,7 +23,7 @@ public class CursoController {
     public ModelAndView findAll() {
          
         ModelAndView mv = new ModelAndView("/curso");
-        mv.addObject("cursos", service.findAll());
+        mv.addObject("cursos", service.findAllVTO());
          
         return mv;
     }
