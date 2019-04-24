@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org ">
+
+<body>
+	<div th:fragment="menu">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Uece</a>
+				</div>
+
+
+				<ul class="nav navbar-nav">
+					<li><a th:href="@{/home}">Home</a></li>
+					<li><a th:href="@{/curso}">Curso</a></li>
+					<li><a th:href="@{/aluno}">Aluno</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</body>
+</html>

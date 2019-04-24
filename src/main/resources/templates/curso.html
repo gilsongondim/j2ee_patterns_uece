@@ -20,25 +20,7 @@
 </head>
 <body>
 
-
-
-	<div th:fragment="menu">
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#">Apisys</a>
-				</div>
-
-				<ul class="nav navbar-nav">
-					<li><a th:href="@{/home}">Home</a></li>
-					<li><a th:href="@{/curso}">Curso</a></li>
-					<li><a th:href="@{/aluno}">Aluno</a></li>
-				</ul>
-			</div>
-		</nav>
-
-	</div>
-
+<div th:include="menu :: menu"></div>
 
 	<div class="panel panel-default">
 		<div class="panel-heading">

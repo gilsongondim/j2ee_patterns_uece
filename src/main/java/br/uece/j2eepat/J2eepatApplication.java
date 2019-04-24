@@ -1,8 +1,11 @@
 package br.uece.j2eepat;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
@@ -14,11 +17,10 @@ import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
-import javax.sql.DataSource;
-
 @SpringBootApplication
 @EnableJpaAuditing
 @EnableJpaRepositories("br.uece.j2eepat.repository")
+@EntityScan(basePackages = "br.uece.j2eepat.model")
 public class J2eepatApplication extends SpringBootServletInitializer {
 
 	@Autowired

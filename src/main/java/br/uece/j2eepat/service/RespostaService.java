@@ -11,44 +11,43 @@ import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.uece.j2eepat.model.Aluno;
-import br.uece.j2eepat.repository.AlunoRepository;
-import br.uece.j2eepat.vto.AlunoVTO;
+import br.uece.j2eepat.model.Resposta;
+import br.uece.j2eepat.repository.RespostaRepository;
 
 @Service
-public class AlunoService {
+public class RespostaService {
     @Autowired
-    private AlunoRepository repository;
+    private RespostaRepository repository;
     
     @PersistenceContext
     private EntityManager entityManager;
      
-    public List<Aluno> findAll() {
+    public List<Resposta> findAll() {
     	
         return repository.findAll();
     }
      
-    public Optional<Aluno> findOne(Long id) {
+    public Optional<Resposta> findOne(Long id) {
         return repository.findById(id);
     }
      
-    public Aluno save(Aluno aluno) {
-        return repository.saveAndFlush(aluno);
+    public Resposta save(Resposta reposta) {
+        return repository.saveAndFlush(reposta);
     }
      
     public void delete(Long id) {
         repository.deleteById(id);
     }
-
-	public List<AlunoVTO> findAllVTO() {
-
+    
+	public List<Resposta> findByPerguntaId(Long perguntaId) {
 		try {
 			StringBuilder sql = new StringBuilder();
-			sql.append(" SELECT NEW br.uece.j2eepat.vto.AlunoVTO(a.id, a.nome, a.numeroMatricula) ");
-			sql.append(" FROM Aluno a ");
+			sql.append(" select r from Resposta r ");
+			sql.append(" where 1 = 1 ");
+			sql.append(" and r.pergunta.id =:perguntaId ");
 			Query query = entityManager.createQuery(sql.toString());
+			query.setParameter("perguntaId", perguntaId);
 			return query.getResultList();
-
 		} catch (NoResultException e) {
 			return null;
 		}

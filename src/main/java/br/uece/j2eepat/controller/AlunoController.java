@@ -19,16 +19,16 @@ import java.util.Optional;
 public class AlunoController {
      
     @Autowired
-    private AlunoService service;
+    private AlunoService alunoService;
     
     @Autowired
-    private CursoService serviceCurso;
+    private CursoService cursoService;
      
     @GetMapping("/aluno")
     public ModelAndView findAll() {
          
         ModelAndView mv = new ModelAndView("/aluno");
-        mv.addObject("alunos", service.findAll());   
+        mv.addObject("alunos", alunoService.findAllVTO());   
         return mv;
     }
      
@@ -37,7 +37,7 @@ public class AlunoController {
          
         ModelAndView mv = new ModelAndView("/alunoAdd");
         mv.addObject("aluno", aluno);
-        mv.addObject("cursos", serviceCurso.findAll());
+        mv.addObject("cursos", cursoService.findAll());
         mv.addObject("statusList", StatusCurso.values());
          
         return mv;
@@ -49,7 +49,7 @@ public class AlunoController {
          
         ModelAndView mv = new ModelAndView("/alunoAdd");
         mv.addObject("aluno", optional);
-        mv.addObject("cursos", serviceCurso.findAll());
+        mv.addObject("cursos", cursoService.findAll());
         mv.addObject("statusList",StatusCurso.values());
          
         return mv;
@@ -58,13 +58,13 @@ public class AlunoController {
     @GetMapping("/editAluno/{id}")
     public ModelAndView edit(@PathVariable("id") Long id) {
          
-        return add2(service.findOne(id));
+        return add2(alunoService.findOne(id));
     }
      
     @GetMapping("/deleteAluno/{id}")
     public ModelAndView delete(@PathVariable("id") Long id) {
          
-        service.delete(id);
+        alunoService.delete(id);
          
         return findAll();
     }
@@ -77,7 +77,7 @@ public class AlunoController {
             return add(aluno);
         }
          
-        service.save(aluno);
+        alunoService.save(aluno);
          
         return findAll();
     }

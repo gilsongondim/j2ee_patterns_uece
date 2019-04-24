@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-@Entity(name = "aluno")
+@Entity
 public class Aluno implements Serializable {
  
     private static final long serialVersionUID = 1L;

@@ -14,24 +14,7 @@
     <script type="text/javascript" src="/js/script.js"></script>    
 
 </head>
-<body>
-	<div th:fragment="menu">
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#">Apisys</a>
-				</div>
-
-
-				<ul class="nav navbar-nav">
-					<li><a th:href="@{/home}">Home</a></li>
-					<li><a th:href="@{/curso}">Curso</a></li>
-					<li><a th:href="@{/aluno}">Aluno</a></li>
-				</ul>
-			</div>
-		</nav>
-
-	</div>
+<div th:include="menu :: menu"></div>
 
 	<div class="panel panel-default">
 		<div class="panel-heading">
@@ -47,18 +30,18 @@
 							<th><input style="width: 50px"  type="text" id="id" /></th>
 							<th><input type="text" id="nome" /></th>
 							<th><input style="width: 100px" type="text" id="matricula" /></th>
-							<th><input style="width: 50px" type="text" id="semestre" /></th>
+							<!--th><input style="width: 50px" type="text" id="semestre" /></th>
 							<th><input type="text" id="curso" /></th>
-							<th style="width: 50px" ><input type="text" id="status" /></th>
+							<th style="width: 50px" ><input type="text" id="status" /></th>-->
 							<th>Filtros</th>
 						</tr>
 						<tr>
 							<th>ID</th>
 							<th>Nome</th>
 							<th style="width: 80px">Nº Matricula</th>
-							<th style="width: 50px">Semestre</th>
+						<!--<th style="width: 50px">Semestre</th>
 							<th>Curso</th>
-							<th>Status</th>
+							<th>Status</th>-->
 							<th >Editar/Excluir</th>
 						</tr>
 
@@ -68,9 +51,9 @@
 							<td style="width: 50px" th:text="${aluno.id}"></td>
 							<td th:text="${aluno.nome}"></td>
 							<td th:text="${aluno.numeroMatricula}"></td>
-							<td th:text="${aluno.semestre}"></td>
+						<!--<td th:text="${aluno.semestre}"></td>
 							<td th:text="${aluno.curso.nome}"></td>
-							<td th:text="${aluno.status}"></td>
+							<td th:text="${aluno.status}"></td>-->
 							<td>
 								<div class="btn-group pull-right">
 									<a class="btn btn-sm btn-primary"
