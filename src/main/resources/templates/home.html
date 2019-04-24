@@ -25,7 +25,7 @@
         <ul class="nav navbar-nav">
             <li><a class="brand" href="/aluno">Alunos</a></li>
             <li><a class="brand" href="/curso">Cursos</a></li>
-            <li><a class="brand" href="/perguntas">Provas</a></li>
+            <li><a class="brand" href="/pergunta">Provas</a></li>
         </ul>
     </nav>
 
@@ -34,14 +34,14 @@
 
 <div class="page-content">
 
-    <h1 layout:fragment="header">FakeStackOverflow
+    <h1 layout:fragment="header">Controle de Escola
         <small>Painel de Controle</small></h1>
 
     <div layout:fragment="content" class="container">
         <div class="jumbotron">
             <a th:href="@{/aluno}" class="btn btn-lg btn-info">Alunos</a>
             <a th:href="@{/curso}" class="btn btn-lg btn-info">Cursos</a>
-            <a th:href="@{/perguntas}" class="btn btn-lg btn-info">Provas</a>
+            <a th:href="@{/pergunta}" class="btn btn-lg btn-info">Provas</a>
         </div>
     </div>
 
