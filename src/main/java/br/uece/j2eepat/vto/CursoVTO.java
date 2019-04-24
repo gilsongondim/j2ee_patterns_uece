@@ -26,7 +26,6 @@ public class CursoVTO {
 		this.nome = nome;
 	}
 
-
 	public String getInstituicaoEnsino() {
 		return instituicaoEnsino;
 	}
